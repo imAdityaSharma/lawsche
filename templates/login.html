@@ -1,0 +1,59 @@
+{% extends "signup.html" %}
+
+{% block title %}
+Legistify|Login
+{% endblock %}
+
+{% load static %}
+<img src="{% static 'images/pic.jpg' %}" alt="My image">
+
+{% block link %}
+{% url "signup" %}
+{% endblock %}
+{% block linkname %}
+Sign Up
+{% endblock %}
+
+
+{% load cfilters %}
+
+{% block content %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h5>{{ message }}</h5></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div class="row">
+	<form method='POST' action='' style="padding-top:30px;padding-bottom:200px"class="col s6 offset-s3" >{% csrf_token %}
+
+{% for field in form %}
+       <div class="input-field col s12">    
+{% if field.name == "password" %}
+{{ field|addtype:"password" }}
+{% else %}
+{{ field }}
+{% endif %}
+{{ field.label_tag }}
+<p style="color:red">{{ field.errors }}</p>          
+        </div>  
+
+{% endfor %}
+
+<!-- <input class="waves-effect waves-light btn" type='submit' value = 'Login' id='btn-login' > -->
+<button class="btn waves-effect waves-light" type="submit" name="action">Login
+    <i class="material-icons right">send</i>
+  </button>
+
+</div>
+
+
+	</form>
+
+
+
+{% endblock %}

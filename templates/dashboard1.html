@@ -1,0 +1,113 @@
+{% extends "signup.html" %}
+
+{% block title %}
+Legistify|Users
+{% endblock %}
+
+{% block link %}
+{% url "logout" %}
+{% endblock %}
+{% block linkname %}
+Logout
+{% endblock %}
+
+{% load static %}
+<img src="{% static 'images/pic.jpg' %}" alt="My image">
+
+
+{% load cfilters %}
+
+{% block ll %}
+
+{% endblock %}
+
+  
+{% block content %}  
+
+<h3 class="center-align">Welcome {{ user.name }}  </h3>
+<h6 class="center-align">Select a lawyer from below for requesting an appointment</h6>
+
+<div class="row">
+<form action="" method='POST' onsubmit="return false" style="padding-bottom:90px" class="col s10 offset-s2">{% csrf_token %}
+	{% for lawyer in lawyers %}
+    <p> {% if lawyer.startdate and lawyer.enddate %}
+      <input name="lawyer" type="radio" id="{{ lawyer.id }}" value="{{ lawyer.id }}" />
+      <label for="{{ lawyer.id }}">Name: {{ lawyer.name }} &nbsp Email Id: {{ lawyer.email }}  &nbsp available from {{ lawyer.startdate }}&nbsp to {{ lawyer.enddate }}
+        </label> <br>
+    </p><br>
+    &nbsp {% endif %}
+    {% endfor %}
+
+     	<div class="row">
+        <div class="input-field col s6">
+          
+          <textarea id="icon_prefix2" class="materialize-textarea" name="description"></textarea>
+          <label for="icon_prefix2">Description</label>
+        </div>
+      </div>
+      <div class="input-field col s6">
+ <input type="date" id="appdate" class="datepicker" name = "date">
+ <label for="appdate">Select a date for appointment</label>
+<button class="btn waves-effect waves-light" type="submit" id="submit" name="action">Send Request
+    <i class="material-icons right">send</i>
+  </button>
+</div>
+
+  <h5 id="bookerror"></h5>
+  </form>
+</div>
+
+
+<div class="row">
+  <div class="col s10 offset-s1">
+<ul class="collection">
+
+  {% for r in bookingrequests %}
+  
+  {% if r.accepted %} 
+  
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Description: {{ r.description }}</span>
+      <p>
+        <li2><a href="{% block link1 %}{% url 'chat' %}{% endblock %}"><buttom>Chat-Now</button></a></li2><br>
+        lawyer ID : {{ r.to_userid  }}<br>
+         Date of appointment: {{ r.date }}<br>
+         Status : Accepted
+      </p>
+      </i>
+    </li>
+
+    {% elif r.denied %}
+    <li class="collection-item avatar">
+      <i class="material-icons circle denied">insert_chart</i>
+      <span class="title">Description: {{ r.description }}</span>
+      <p>
+         Date of appointment: {{ r.date }}<br>
+         Status : Request Denied
+      </p>
+
+    </li>
+
+    {% else %}
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Description: {{ r.description }}</span>
+      <p> <center>
+        
+         Date of appointment: {{ r.date }}<br>
+         Status : Pending
+      </p></center>
+      
+    </li>
+    {% endif %}
+    {% endfor %}
+   
+  </ul>
+  </div>
+</div>
+
+
+
+{% endblock %}
+

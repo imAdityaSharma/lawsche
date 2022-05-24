@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{context}}</title>
+</head>
+<body>
+    
+
+    <div class="form-cc feed" >
+        <h1 class="text-center"> feedback</h1>
+        <form method="POST" action="feedback">
+         {% csrf_token %}
+         
+            <div class="form-group ">
+                <label for="email" class="form-label">Email address</label> 
+                <input type="email" class="form-control" id="email" name="email" value="{{user.email}}"><br>
+                <label for="user" class="form-label">username</label>
+                <input type="text" class="form-control" id="user" name="user" value="{{user.name}}"><br>
+                <label for="law_user" class="form-label">lawyer mail id</label>
+                {% comment %} {% if bookingrequests.email%} {% endcomment %}
+                <input type="text" class="form-control" id="for_lawyer" name="for_lawyer" value=" "><br> 
+                <input type="radio" id="1star" name="star" value="1">
+                <label for="1star"> ⭐</label><br>
+                <input type="radio" id="2star" name="star" value="2">
+                <label for="2star"> ⭐⭐</label><br>
+                <input type="radio" id="3star" name="star" value="3">
+                <label for="3star"> ⭐⭐⭐</label><br>
+                <input type="radio" id="2star" name="star" value="4">
+                <label for="4star"> ⭐⭐⭐⭐</label><br>
+                <input type="radio" id="3star" name="star" value="5">
+                <label for="5star"> ⭐⭐⭐⭐⭐</label><br> 
+            </div>
+            <div class="form-group">
+                <label for="feedback" class="form-label">Enter your query</label>
+                <textarea class="form-control" id="feedback" name="feedback" rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" name="action">submit</button>
+        </form> 
+
+     {% comment %} <form method="post" actions = "home">
+        {% csrf_token %}
+        <div class="form-group ">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{user.email}}"><br>
+            <label for="user" class="form-label">username</label>
+            <input type="text" class="form-control" id="user" name="user" value="{{user.name}}"><br>
+            <label for="law_user" class="form-label">for lawyer</label>
+            <input type="text" class="form-control" id="for_lawyer" name="for_lawyer" value="{{ lawyer.name }}   "><br>
+                <input type="radio" id="1star" name="star" value="1">
+                <label for="1star"> ⭐</label><br>
+                <input type="radio" id="2star" name="star" value="2">
+                <label for="2star"> ⭐⭐</label><br>
+                <input type="radio" id="3star" name="star" value="3">
+                <label for="3star"> ⭐⭐⭐</label><br>
+                <input type="radio" id="2star" name="star" value="4">
+                <label for="4star"> ⭐⭐⭐⭐</label><br>
+                <input type="radio" id="3star" name="star" value="5">
+                <label for="5star"> ⭐⭐⭐⭐⭐</label><br>
+        </div>
+        <div class="form-group">
+            <label for="feedback" class="form-label">Enter your query</label>
+            <textarea class="form-control" id="feedback" name="feedback" rows="3"></textarea>
+        </div>
+        <button class="button is-success is-fullwidth is-medium mt-5"
+                type="submit">Dweet
+        </button>
+    </form> {% endcomment %}
+    
+    </div>
+
+
+</body>
+<style>
+    .feed{
+        width: 60%;
+        /* padding-left: 20%; 
+        padding-right: 30%; */
+        margin: 50px auto;
+    }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</html>

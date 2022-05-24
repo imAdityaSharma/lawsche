@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-180d7aa1fc9-29cd8be43af637bc": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "db.sqlite3",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "E:\\LawyerScheduler_guptaV2\\last_updated\\db.sqlite3",
+				"url": "jdbc:sqlite:E:\\LawyerScheduler_guptaV2\\last_updated\\db.sqlite3",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

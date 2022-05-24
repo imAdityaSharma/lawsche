@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+  
+   
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="#">legistify</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-link">
+                <a class="nav-link" href="{% block link7 %}{% url 'developer' %}{% endblock %}">developer<span class="sr-only">(current)</span></a>
+              </li>
+            <li class="nav-link">
+                <a class="nav-link" href="{% block link8 %}{% url 'feedback' %}{% endblock %}">feedback<span class="sr-only">(current)</span></a>
+              </li>
+            <li class="nav-link">
+                <a class="nav-link" href="{% block link9 %}{% url 'feedbackANDreview' %}{% endblock %}">lawyer reviews <span class="sr-only">(current)</span></a>
+              </li>           
+          </ul>
+        </div>
+      </nav>
+      <div
+    class="p-5 text-center bg-image"
+    style="
+      background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+      height: 400px;
+    "
+  >
+
+
+
+    <!-- courousel images -->
+    <div class="mainbd">
+        <div class="cont">
+Your Legal Advisor<br>
+
+BRIDGING THE GAP OF LITIGATION <br>
+
+<p>Your Legal Advisor helps to bridge the gap of litigation by connecting you with the best legal professionals.</p>
+
+<p>Sourcing the best legal experts</p>
+
+<p> Legal Advisor helps to bridge the gap of litigation by connecting you with the best legal professionals.</p>
+<p>We are an independent agency and do not provide any legal services. We assist by placing you with the
+     right barrister, solicitor, costs barrister, or ADR expert for your case.</p>
+
+
+<li class="nav-item btnn active">
+    <a class="nav-link "href="{% block link5 %}{% url 'login' %}{% endblock %}">LogIn <span class="sr-only">(current)</span></a>
+  </li>
+  <li class="nav-link btnn ">
+    <a class="nav-link" href="{% block link6 %}{% url 'signup' %}{% endblock %}">SignUp<span class="sr-only">(current)</span></a>
+  </li>
+</div>
+</div>
+</body>
+<style>
+    .btnn{
+
+        color: white;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+    .cont{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        font-size: 15px;
+        color: white;
+
+    }
+    .mainbd{
+        {% comment %} background-image: url("static/shutterstock_650042587.jpg"); {% endcomment %}
+        background-size:display;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        height: 100vh;
+        width: 100%;
+        margin-top: 5%
+    }
+        /* ;
+        /* background-repeat: no-repeat; */
+        /* background-position: center; */
+        /* height: 100px; */
+        /* background-repeat: no-repeat; */
+  /* background-position: right top;
+  background-attachment: fixed; */
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</html>
